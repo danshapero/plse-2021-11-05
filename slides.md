@@ -108,6 +108,17 @@ All of those are fine but can we talk about how awful the basic kernels are to w
 
 ----
 
+Just flipping a triangle edge is surprisingly hard.
+
+![flips](https://upload.wikimedia.org/wikipedia/commons/d/dc/Flips2d3d.svg)
+
+In 3D things become truly heinous.
+3-2 and 2-3 flips are far from the worst of it too!
+
+<small>From <a href="https://en.wikipedia.org/wiki/Flip_graph">flip graph</a> wiki page</small>
+
+----
+
 ### Desiderata
 
 * Lots of literature focuses only on simplices.
