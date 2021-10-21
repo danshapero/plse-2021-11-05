@@ -141,3 +141,155 @@ Flipping an edge is surprisingly hard.
 * Lots of literature focuses only on simplices in 2D or 3D.
 I want cubical or polyhedral complexes!
 * Ordering only gives orientation for simplices.
+No more half-edge or winged edge data structures.
+* Less imperative, more declarative.
+
+---
+
+### Homological algebra
+
+----
+
+* All the data structures for meshes describe adjacency.
+They also need is *orientation*.
+* The simplest case: an edge $e$ goes from $v_0$ to $v_1$.
+* We can write that
+$$\partial e = v_1 - v_0.$$
+
+----
+
+* Just like we can "add" vertices, we can "add" edges two and extend by linearity.
+* Suppose $e_0 = v_1 - v_0$, $e_1 = v_2 - v_1$.
+Then
+$$\partial(e_0 + e_1) = v_2 - v_0,$$
+and likewise
+$$\partial(e_1 - e_0) = v_2 - 2v_1 + v_0.$$
+
+----
+
+* Suppose a triangle $t$ has edges $e_0$, $e_1$, $e_2$ and is positively-oriented w.r.t. all of them.
+We can likewise say that
+$$\partial t = e_0 + e_1 + e_2.$$
+* Suppose that $e_1$ had its orientation flipped.
+We'd then have that
+$$\partial t = e_0 - e_1 + e_2.$$
+Orientation of each cell is immaterial.
+
+----
+
+### Definitions
+
+* Let $X_k$ be all the cells of dimension $k$.
+* The $k$-*chains* $C_k$ are the set of all integer linear combinations of elements of $X_k$.
+* $\partial_k : C_k \to C_{k - 1}$ is a linear operator.
+
+----
+
+* For a nice mesh, topological and geometric orientation should agree.
+* If the vertices of each of these two triangles are ordered positively, the two points they have in common will appear in the opposite order w.r.t. each other.
+
+----
+
+Neighboring top cells should have opposite orientation w.r.t. their common boundary cells.
+
+----
+
+$$\Huge{\partial_k\circ\partial_{k + 1} = 0}$$
+
+----
+
+pictures
+
+----
+
+### An annoying problem
+
+* $\partial\circ\partial = 0$ is useful, but what prevents us from having an edge $e$ such that
+$$\partial e = v_1 + v_0?$$
+* We could impose this as an extra side condition.
+
+----
+
+### Some convenient fictions
+
+* Or, we could say that there is a cell $\bot$ of dimension -1 such that, for all $k$,
+$$\partial v_k = \bot$$
+* The vertex boundary matrix is a row of 1s!
+* If we did have $\partial e = v_1 + v_0$, then
+$$\partial_0\circ\partial_1e = 2\bot \neq 0!$$
+
+----
+
+### Homology
+
+* If $\alpha$ is a boundary, it has no boundary.
+* Are there chains that have zero boundary, but that are not themselves boundaries?
+* These chains constitute the **homology groups**:
+$$H_k = \text{kernel }\partial_k / \text{image }\partial_{k + 1}$$
+
+----
+
+torus image
+
+----
+
+### Categories
+
+* To every (reasonable) *topological space* you can associate a *group*.
+* This is profoundly disturbing and gets us in Russell's paradox territory.
+* This is why people came up with category theory.
+* "I'd like to learn to ~~play~~ math like that, and then not do it." ~Frank Proffitt
+
+----
+
+### A data structure
+
+* We can represent cell complexes as a bunch of **sparse matrices** with **integer entries**.
+* How convenient that scipy, eigen or plenty of other packages give us this.
+
+----
+
+### Linear algebra
+
+* This interpretation opens up all sorts of linear algebraic reasoning to us.
+* For example, to merge two cells $t_0$ and $t_1$, we replace those columns in the boundary matrix with $\partial(t_0 + t_1)$.
+* Suppose that $P$, $Q$ are matrices such that $PQ = \rho I$ for some integer $\rho$.
+Then
+$$0 = \rho\cdot\partial_k\circ\partial_{k + 1} = (\partial_k \circ P)\circ(Q\circ\partial_{k + 1})$$
+
+
+----
+
+![meme](linear-algebra.jpg)
+
+---
+
+### Transforming topologies
+
+---
+
+### Closing thoughts
+
+----
+
+This representation of cell complexes:
+* Is easy to check for correctness
+* Is independent of the intrinsic dimension
+* Is independent of the coordinate number (simplex, cubical, polyhedral)
+* Allows a rich set of transformations to be implemented easily and declaratively
+
+----
+
+### Parallelism
+
+* All of this was very single-threaded.
+* For real PDE problems, we decompose the domain and go parallel.
+* We can treat the domains and the interfaces between them as a higher-level cell complex.
+
+----
+
+### Some mesh generators
+
+* [TriWild](https://github.com/wildmeshing/TriWild), [TetWild](https://github.com/wildmeshing/fTetWild)
+* [gmsh](https://gmsh.info)
+* [tetgen](https://tetgen.org)
