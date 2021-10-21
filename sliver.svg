@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="240mm"
+   height="90mm"
+   viewBox="0 0 82.823639 31.143835"
+   version="1.1"
+   id="svg956"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs953">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath20">
+      <path
+         d="M 387.506,1652.26 V 7576.83 H 4965.58 V 1652.26 Z"
+         id="path18" />
+    </clipPath>
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(-60.720231,-104.53537)">
+    <g
+       id="g14"
+       transform="matrix(0.03527778,0,0,-0.03527778,40.954374,365.75986)">
+      <g
+         id="g16"
+         clip-path="url(#clipPath20)">
+        <path
+           d="m 1262.73,7038.23 c 0,-185.91 -150.71,-336.62 -336.626,-336.62 -185.912,0 -336.624,150.71 -336.624,336.62 0,185.92 150.712,336.63 336.624,336.63 185.916,0 336.626,-150.71 336.626,-336.63 z"
+           style="fill:none;stroke:#000000;stroke-width:1.68312;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path22" />
+        <path
+           d="m 2070.62,7038.23 c 0,-185.91 -150.71,-336.62 -336.62,-336.62 -185.91,0 -336.62,150.71 -336.62,336.62 0,185.92 150.71,336.63 336.62,336.63 185.91,0 336.62,-150.71 336.62,-336.63 z"
+           style="fill:none;stroke:#000000;stroke-width:1.68312;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path24" />
+        <path
+           d="m 2878.52,7038.23 c 0,-185.91 -150.71,-336.62 -336.62,-336.62 -185.92,0 -336.63,150.71 -336.63,336.62 0,185.92 150.71,336.63 336.63,336.63 185.91,0 336.62,-150.71 336.62,-336.63 z"
+           style="fill:none;stroke:#000000;stroke-width:1.68312;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path26" />
+        <path
+           d="m 2878.52,7038.23 c 0,-55.77 -150.71,-100.98 -336.62,-100.98 -185.92,0 -336.63,45.21 -336.63,100.98 0,55.78 150.71,100.99 336.63,100.99 185.91,0 336.62,-45.21 336.62,-100.99 z"
+           style="fill:none;stroke:#000000;stroke-width:1.68312;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:14.9685;stroke-dashoffset:0;stroke-opacity:1"
+           id="path28" />
+        <path
+           d="m 690.467,7240.21 -16.831,-84.16"
+           style="fill:none;stroke:#000000;stroke-width:1.68312;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:14.9685;stroke-dashoffset:0;stroke-opacity:1"
+           id="path30" />
+        <path
+           d="M 656.805,6903.58 1161.74,7021.4"
+           style="fill:none;stroke:#000000;stroke-width:1.68312;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:14.9685;stroke-dashoffset:0;stroke-opacity:1"
+           id="path32" />
+        <path
+           d="m 1683.51,7341.19 -134.65,-33.66 185.14,67.33 z"
+           style="fill:none;stroke:#000000;stroke-width:3.36623;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path34" />
+        <path
+           d="m 1548.86,7307.53 h 370.28"
+           style="fill:none;stroke:#000000;stroke-width:3.36623;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path36" />
+        <path
+           d="m 690.467,7240.21 -33.662,-33.66 572.255,-117.82 z"
+           style="fill:none;stroke:#000000;stroke-width:3.36623;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path38" />
+        <path
+           d="m 656.805,7206.55 16.831,-50.5 555.424,-67.32 z"
+           style="fill:none;stroke:#000000;stroke-width:3.36623;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path40" />
+        <path
+           d="m 639.974,6937.25 555.426,33.66 -33.66,50.49 z"
+           style="fill:none;stroke:#000000;stroke-width:3.36623;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path42" />
+        <path
+           d="m 639.974,6937.25 16.831,-33.67 538.595,67.33 z"
+           style="fill:none;stroke:#000000;stroke-width:3.36623;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path44" />
+        <path
+           d="m 1734,7374.86 -50.49,-33.67 235.63,-33.66 z"
+           style="fill:none;stroke:#000000;stroke-width:3.36623;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path46" />
+        <path
+           d="m 2255.77,7088.73 622.75,-50.5"
+           style="fill:none;stroke:#000000;stroke-width:1.68312;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:14.9685;stroke-dashoffset:0;stroke-opacity:1"
+           id="path48" />
+        <path
+           d="m 2255.77,7088.73 269.29,-117.82 353.46,67.32 -269.3,100.99 z"
+           style="fill:none;stroke:#000000;stroke-width:6.73247;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path50" />
+        <path
+           d="m 2525.06,6970.91 84.16,168.31"
+           style="fill:none;stroke:#000000;stroke-width:6.73247;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path52" />
+        <g
+           id="g54"
+           transform="scale(10)">
+          <text
+             transform="matrix(1,0,0,-1,65.6805,656.696)"
+             style="font-variant:normal;font-weight:bold;font-size:8.07896px;font-family:Times;-inkscape-font-specification:Times-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text58"><tspan
+               x="0 5.8330092 9.4200678 13.007126 17.499027 19.744978 23.332037 25.351776 27.597727 29.617468 37.696426 41.283485 45.775387 49.814869 100.987 106.82001 110.85949 178.4104 182.9023 185.14825 187.39421 191.43369 195.02074"
+               y="0"
+               id="tspan56">Needle / WedgeCapSliver</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

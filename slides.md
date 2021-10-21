@@ -75,36 +75,51 @@ There are two basic types of algorithms in 2D:
 
 ----
 
-### Aren't we done?
-
-* We started with just the boundary $\partial\Omega$.
-* We also need to:
-  1. Fill in the points in the interior
-  2. Constrain the triangulation to include $\partial\Omega$
-* Filling interior points is half the challenge.
+pictures
 
 ----
 
-### What about 3D?
+### Aren't we done?
 
-* Things get much worse in 3D because of *slivers*.
-* Enforcing the empty circumsphere property alone doesn't guarantee you a good triangulation.
-* There are 3D piecewise linear complexes with no tetrahedralization.
+* We started with just $\partial\Omega$.
+We also need to:
+  1. Fill points in the interior
+  2. Constrain the triangulation to include $\partial\Omega$
+* Filling interior points is half the challenge -- Delaunay is best, still might not be good enough.
+
+----
+
+![sliver](sliver.svg)
+
+<small>From <a href="https://people.eecs.berkeley.edu/~jrs/papers/delref3d.pdf">Shewchuk (1998)</a>:
+"Tetrahedra with poor angles.
+Needles and wedges have edges of greatly disparate length; caps have a large solid angle; slivers have neither, but can have good circumradius-to-shortest edge ratios."
+</small>
+
 
 ----
 
 ### Things people work on
 
-* Better internal insertion algorithms in 2D
+* Better incremental interior insertion
 * Evaluating geometric kernels in floating point
-* Everything goes to hell in 3D, how to recover?
+* Fixing sub-optimality of Delaunay in 3D
 * Quad and hex meshing
 * Meshing curved geometries
 * Correcting broken or degenerate topologies
 
----
+----
 
-All of those are fine but can we talk about how awful topological transformation kernels are to write?
+### Before we get ahead of ourselves
+
+
+* Let's look at some code for transforming the topology of a triangulation:
+    * [TTL](https://github.com/SINTEF-Geometry/TTL/blob/49ff0dbabefccb55b1f5793dab2ffcda1cb4da7d/src/halfedge/HeTriang.cpp#L542)
+    * [CGAL](https://github.com/CGAL/cgal/blob/ed3503d2381842f837a8118a749ab380f889485b/Triangulation_2/include/CGAL/Regular_triangulation_2.h#L1629)
+    * [gmsh](https://gitlab.onelab.info/gmsh/gmsh/-/blob/master/Mesh/meshGFaceDelaunayInsertion.cpp#L1901)
+    * [TriWild](https://github.com/wildmeshing/TriWild/blob/d85ec7a6faf50138c034a174226515b44d345c03/src/triwild/edge_swapping.cpp#L54)
+    * [garbage](https://gitlab.com/danshapero/zmsh2/-/blob/delaunay/src/algorithms/delaunay.c#L52) by me
+* How does this code make you feel?
 
 ----
 
@@ -126,13 +141,9 @@ Flipping an edge is surprisingly hard.
 
 ----
 
-### Some implementations
+**Topological transformation kernels are heinous.**
 
-* [TTL](https://github.com/SINTEF-Geometry/TTL/blob/49ff0dbabefccb55b1f5793dab2ffcda1cb4da7d/src/halfedge/HeTriang.cpp#L542)
-* [CGAL](https://github.com/CGAL/cgal/blob/ed3503d2381842f837a8118a749ab380f889485b/Triangulation_2/include/CGAL/Regular_triangulation_2.h#L1629)
-* [gmsh](https://gitlab.onelab.info/gmsh/gmsh/-/blob/master/Mesh/meshGFaceDelaunayInsertion.cpp#L1901)
-* [TriWild](https://github.com/wildmeshing/TriWild/blob/d85ec7a6faf50138c034a174226515b44d345c03/src/triwild/edge_swapping.cpp#L54)
-* [garbage](https://gitlab.com/danshapero/zmsh2/-/blob/delaunay/src/algorithms/delaunay.c#L52) by me
+Can we make them nicer to look at and write?
 
 ----
 
@@ -146,7 +157,7 @@ No more half-edge or winged edge data structures.
 
 ---
 
-### Homological algebra
+# Homological algebra
 
 ----
 
@@ -264,11 +275,22 @@ $$0 = \rho\cdot\partial_k\circ\partial_{k + 1} = (\partial_k \circ P)\circ(Q\cir
 
 ---
 
-### Transforming topologies
+# Transforming topologies
+
+----
+
+### Joining cells
+
+* Using linear algebra makes implementing certain transformations really easy.
+* Ex: join two triangles into a quadrilateral = add their columns in the boundary matrix.
+
+----
+
+picture
 
 ---
 
-### Closing thoughts
+# Closing thoughts
 
 ----
 
