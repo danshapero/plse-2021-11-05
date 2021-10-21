@@ -63,7 +63,7 @@ Triangulation of two cells; left is not Delaunay, right is
 
 ### A key property
 
-Among all triangulations of a point set, the Delaunay triangulation **maximizes** the **minimum** angle.
+Among all triangulations of a point set, Delaunay triangulations **maximize** the **minimum** angle.
 
 ----
 
