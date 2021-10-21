@@ -104,23 +104,40 @@ There are two basic types of algorithms in 2D:
 
 ---
 
-All of those are fine but can we talk about how awful the basic kernels are to write in the first place?
+All of those are fine but can we talk about how awful topological transformation kernels are to write?
 
 ----
 
-Just flipping a triangle edge is surprisingly hard.
+Flipping an edge is surprisingly hard.
 
 ![flips](https://upload.wikimedia.org/wikipedia/commons/d/dc/Flips2d3d.svg)
 
-In 3D things become truly heinous.
-3-2 and 2-3 flips are far from the worst of it too!
+3D transformations are harder: 3 $\leftrightarrow$ 2 face flips...
 
 <small>From <a href="https://en.wikipedia.org/wiki/Flip_graph">flip graph</a> wiki page</small>
 
 ----
 
+...but those are far from the worst of it!
+
+![transformations](topological-transformations.svg)
+
+<small>From <a href="https://doi.org/10.1007/978-3-540-75103-8_1">Klingner and Shewchuk (2008)</a></small>
+
+----
+
+### Some implementations
+
+* [TTL](https://github.com/SINTEF-Geometry/TTL/blob/49ff0dbabefccb55b1f5793dab2ffcda1cb4da7d/src/halfedge/HeTriang.cpp#L542)
+* [CGAL](https://github.com/CGAL/cgal/blob/ed3503d2381842f837a8118a749ab380f889485b/Triangulation_2/include/CGAL/Regular_triangulation_2.h#L1629)
+* [gmsh](https://gitlab.onelab.info/gmsh/gmsh/-/blob/master/Mesh/meshGFaceDelaunayInsertion.cpp#L1901)
+* [TriWild](https://github.com/wildmeshing/TriWild/blob/d85ec7a6faf50138c034a174226515b44d345c03/src/triwild/edge_swapping.cpp#L54)
+* [garbage](https://gitlab.com/danshapero/zmsh2/-/blob/delaunay/src/algorithms/delaunay.c#L52) by me
+
+----
+
 ### Desiderata
 
-* Lots of literature focuses only on simplices.
-I want cubical or polygonal complexes too!
+* Lots of literature focuses only on simplices in 2D or 3D.
+I want cubical or polyhedral complexes!
 * Ordering only gives orientation for simplices.
