@@ -273,6 +273,16 @@ $$0 = \rho\cdot\partial_k\circ\partial_{k + 1} = (\partial_k \circ P)\circ(Q\cir
 
 ![meme](linear-algebra.jpg)
 
+----
+
+### Ordering
+
+* Data structures for simplexes (e.g. half-edge) often assume consistent ordering, which implies:
+  - good input data
+  - manifold topology
+* Remember that there are non-Hamiltonian polyhedra: [Tutte](https://en.wikipedia.org/wiki/Tutte_graph), [Herschel](https://en.wikipedia.org/wiki/Herschel_graph), [Goldner-Harary](https://en.wikipedia.org/wiki/Goldner%E2%80%93Harary_graph).
+* Moral: orientation good, ordering bad.
+
 ---
 
 # Transforming topologies
