@@ -1,13 +1,13 @@
 ---
 title: Topological operations on meshes via SMT
-theme: white
+theme: solarized
 ---
 
 # Transforming cell complexes via SMT
 
 Daniel Shapero
 
-2021 November 8
+2021 November 5
 
 ---
 
@@ -39,6 +39,8 @@ Daniel Shapero
   - Small angles $\Rightarrow$ bad condition number
   - Large angles $\Rightarrow$ bad interpolation error
 * All simulation workflows should be adaptive.
+
+
 
 ---
 
@@ -155,9 +157,11 @@ I want cubical or polyhedral complexes!
 No more half-edge or winged edge data structures.
 * Less imperative, more declarative.
 
+
+
 ---
 
-# Homological algebra
+# Ordering and orientation
 
 ----
 
@@ -195,33 +199,92 @@ Or pyramids?
 
 ----
 
-<img src="images/tesseract.png" width="30%">
+![Herschel graph](https://upload.wikimedia.org/wikipedia/commons/a/ae/Herschel_graph_LS.svg) ![Herschel polyhedron](https://upload.wikimedia.org/wikipedia/commons/e/e7/Herschel_enneahedron_animated.gif)
+
+There are non-Hamiltonian polyhedra.
+How do you order the vertices?
+
+<small>From wikipedia, [Herschel graph](https://en.wikipedia.org/wiki/Herschel_graph).
+See also the [Tutte](https://en.wikipedia.org/wiki/Tutte_graph) and [Goldner-Harary](https://en.wikipedia.org/wiki/Goldner%E2%80%93Harary_graph) graphs.</small>
+
+----
+
+![5-cell](https://upload.wikimedia.org/wikipedia/commons/d/d8/5-cell.gif) ![8-cell](https://upload.wikimedia.org/wikipedia/commons/d/d7/8-cell.gif)
 
 What would happen if our tetrahedron lived in 4D?
-Or a 4D hypercube got projected into 3D?
+Or a 4D polytope got projected into 3D?
 
-**The moral**: Vertex ordering generalizes poorly.
-
-----
-
-describe chains and boundaries
+<small>From wikipedia, [5-cell](https://en.wikipedia.org/wiki/5-cell) and [tesseract](https://en.wikipedia.org/wiki/Tesseract)</small>
 
 ----
 
-### Definitions
+* **The moral**: Vertex ordering generalizes poorly and assumes nice manifold inputs.
+* **The problem**: Lots of mesh data structure in FEM packages rely on ordering.
+* **The solution**: A data structure that encodes *topology* independent of *geometry*.
 
-* Let $X_k$ be all the cells of dimension $k$.
-* The $k$-*chains* $C_k$ are the set of all integer linear combinations of elements of $X_k$.
-* $\partial_k : C_k \to C_{k - 1}$ is a linear operator.
+
+
+---
+
+# Homological algebra
 
 ----
 
-* For a nice mesh, topological and geometric orientation should agree.
-* If the vertices of each of these two triangles are ordered positively, the two points they have in common will appear in the opposite order w.r.t. each other.
+### Cell complexes
+
+* [**Cell complexes**](https://en.wikipedia.org/wiki/CW_complex) are a generalization of triangulations and polygonizations.
+* It's a bunch of shapes glued together*.
+* But they can have e.g. hanging edges.
+
+${}$
+
+<small>*The fancy math definition is long-winded and equivalent to this.</small>
 
 ----
 
-Neighboring top cells should have opposite orientation w.r.t. their common boundary cells.
+The following definitions are going to seem hella weird at first, just... mellow out it'll be ok.
+
+----
+
+### Chains
+
+* The *$k$-skeleton* of a complex is the collection $\\{\sigma_1, \ldots \sigma_m\\}$ of all its $k$D cells.
+* A [$k$-**chain**](https://en.wikipedia.org/wiki/Chain_(algebraic_topology)) is a formal $\mathbb{Z}$-linear combination
+$$C = c_1\sigma_1 + \ldots + c_m\sigma_m$$
+* We can identify a cell $\sigma_i$ with the chain
+$$C_i = 0\cdot\sigma_1 + \ldots + 1\cdot\sigma_i + \ldots + 0\cdot\sigma_m$$
+
+----
+
+The 0-skeleton
+
+![0-skeleton](images/0-skeleton.png)
+
+----
+
+The 0- and 1-skeletons
+
+![1-skeleton](images/1-skeleton.png)
+
+----
+
+The 0-, 1-, and 2-skeletons
+
+![2-skeleton](images/2-skeleton.png)
+
+----
+
+A 2-chain
+
+![chain](images/chains.png)
+
+----
+
+### Boundaries
+
+* The **boundary operator** is a linear mapping from $k$-chains to $k - 1$-chains:
+$$\partial\_k : \mathscr C_k \to \mathscr C_{k - 1}$$
+* $\partial_k$ encodes both **adjacency** and **orientation**.
 
 ----
 
@@ -229,7 +292,20 @@ $$\Huge{\partial_k\circ\partial_{k + 1} = 0}$$
 
 ----
 
-pictures
+![boundary of boundary of triangles](images/boundary-of-boundary1.png)
+
+----
+
+![boundary of boundary of modified triangles](images/boundary-of-boundary2.png)
+
+* Suppose that $\partial_1\cdot\partial_2 = 0$ and $PQ = \alpha I$.
+* Then $\partial_1' = \partial_1\cdot P$ and $Q\cdot\partial_2'$ are still good!
+
+----
+
+Joining polygons is just chain addition!
+
+<img src="images/quadrilateral.png" width="65%">
 
 ----
 
@@ -304,16 +380,6 @@ $$0 = \rho\cdot\partial_k\circ\partial_{k + 1} = (\partial_k \circ P)\circ(Q\cir
 ----
 
 ![meme](linear-algebra.jpg)
-
-----
-
-### Ordering
-
-* Data structures for simplexes (e.g. half-edge) often assume consistent ordering, which implies:
-  - good input data
-  - manifold topology
-* Remember that there are non-Hamiltonian polyhedra: [Tutte](https://en.wikipedia.org/wiki/Tutte_graph), [Herschel](https://en.wikipedia.org/wiki/Herschel_graph), [Goldner-Harary](https://en.wikipedia.org/wiki/Goldner%E2%80%93Harary_graph).
-* Moral: orientation good, ordering bad.
 
 ---
 
