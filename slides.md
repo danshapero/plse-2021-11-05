@@ -161,30 +161,50 @@ No more half-edge or winged edge data structures.
 
 ----
 
-* All the data structures for meshes describe adjacency.
-They also need is *orientation*.
-* The simplest case: an edge $e$ goes from $v_0$ to $v_1$.
-* We can write that
-$$\partial e = v_1 - v_0.$$
+### Let's talk about triangles
+
+<img src="images/triangle.png" width="30%">
+
+A triangle $\{x_0, x_1, x_2\}$ in 2D is +-ordered if
+
+$$\det\left[\begin{matrix} x_0 & x_1 & x_2\end{matrix}\right] > 0$$
+
+<small>*using homogeneous coordinates</small>
 
 ----
 
-* Just like we can "add" vertices, we can "add" edges two and extend by linearity.
-* Suppose $e_0 = v_1 - v_0$, $e_1 = v_2 - v_1$.
-Then
-$$\partial(e_0 + e_1) = v_2 - v_0,$$
-and likewise
-$$\partial(e_1 - e_0) = v_2 - 2v_1 + v_0.$$
+<img src="images/triangles.png" width="30%">
+
+* +-ordered adjacent triangles traverse their shared edge in the opposite order.
+* The edge has no real ordering of its own.
 
 ----
 
-* Suppose a triangle $t$ has edges $e_0$, $e_1$, $e_2$ and is positively-oriented w.r.t. all of them.
-We can likewise say that
-$$\partial t = e_0 + e_1 + e_2.$$
-* Suppose that $e_1$ had its orientation flipped.
-We'd then have that
-$$\partial t = e_0 - e_1 + e_2.$$
-Orientation of each cell is immaterial.
+<img src="images/tetrahedron.png" width="30%"> <img src="images/tetrahedra.png" width="30%">
+
+* +-ordering of tetrahedra is also defined by the determinant of the corners.
+* Let's think about their shared triangle + edges...
+
+----
+
+<img src="images/orientation.png" width="30%">
+
+What about quads and hexes?
+Or non-convex polygons?
+Or pyramids?
+
+----
+
+<img src="images/tesseract.png" width="30%">
+
+What would happen if our tetrahedron lived in 4D?
+Or a 4D hypercube got projected into 3D?
+
+**The moral**: Vertex ordering generalizes poorly.
+
+----
+
+describe chains and boundaries
 
 ----
 
@@ -240,7 +260,19 @@ $$H_k = \text{kernel }\partial_k / \text{image }\partial_{k + 1}$$
 
 ----
 
-torus image
+![torus](images/torus.png)
+
+----
+
+![torus](images/torus-boundary.png)
+
+----
+
+![torus](images/torus-interior.png)
+
+----
+
+![torus](images/torus-homology-a.png)
 
 ----
 
