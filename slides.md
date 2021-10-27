@@ -405,8 +405,9 @@ picture
 This representation of cell complexes:
 * Is easy to check for correctness
 * Is independent of the intrinsic dimension
-* Is independent of the coordinate number (simplex, cubical, polyhedral)
+* Is independent of the coordinatation number (simplex, cubical, polyhedral)
 * Allows a rich set of transformations to be implemented easily and declaratively
+* Is definitely sub-optimal for space and time
 
 ----
 
@@ -418,8 +419,7 @@ This representation of cell complexes:
 
 ----
 
-### Some mesh generators
+### Further reading
 
-* [Triangle](https://www.cs.cmu.edu/~quake/triangle.html), [aCute](https://www.cise.ufl.edu/~ungor/aCute/), [tetgen](https://tetgen.org)
-* [TriWild](https://github.com/wildmeshing/TriWild), [TetWild](https://github.com/wildmeshing/fTetWild)
-* [gmsh](https://gmsh.info)
+* Popular mesh generators: [Triangle](https://www.cs.cmu.edu/~quake/triangle.html), [aCute](https://www.cise.ufl.edu/~ungor/aCute/), [tetgen](https://tetgen.org), [TriWild](https://github.com/wildmeshing/TriWild), [TetWild](https://github.com/wildmeshing/fTetWild), [gmsh](https://gmsh.info)
+* [Leila De Floriani](http://users.umiacs.umd.edu/~deflo/) has written a lot about data structures for cell complexes [[1]](https://doi.org/10.1145/1057432.1057444)[[2]](https://doi.org/10.1007/978-3-642-15414-0_24)[[3]](https://dl.acm.org/doi/abs/10.5555/1281920.1281940)
