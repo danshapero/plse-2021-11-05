@@ -27,6 +27,10 @@ Daniel Shapero
 
 ----
 
+![finite element workflow](images/finite-element.png)
+
+----
+
 ### Everyone's least favorite task
 
 ![Larsen](images/larsen-mesh.png)
