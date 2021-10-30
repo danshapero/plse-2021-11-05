@@ -9,6 +9,12 @@ Daniel Shapero
 
 2021 November 5
 
+----
+
+![meme](linear-algebra.jpg)
+
+
+
 ---
 
 ### My day job
@@ -327,10 +333,125 @@ $$\partial_0\circ\partial_1e = 2\bot \neq 0!$$
 
 ----
 
+![meme](linear-algebra.jpg)
+
+
+
+---
+
+# Transforming topologies
+
+----
+
+### A data structure
+
+* We can represent cell complexes as a bunch of **sparse matrices** with **integer entries**.
+* Many software packages offer sparse matrices with generic entries: scipy, eigen, ...
+* But storage formats aren't straightforward and you can easily go accidentally quadratic
+
+----
+
+Some pseudocode to check that a topology is good:
+
+```python
+for k in range(dimension):
+    A = topology.boundary(k)
+    B = topology.boundary(k + 1)
+    C = A @ B
+    if norm(C) != 0:
+        return False
+
+return True
+```
+
+----
+
+### Transformations
+
+* Goal: specify topological operations declaratively.
+Conveniently, ops are always local to a few cells.
+* Plan: use an SMT solver to find a valid set of transformations to the (local) boundary operators.
+
+----
+
+### General plan
+
+* Extract the active cells for the operation.
+* Make a numpy array of Z3 integer variables for each boundary operator.
+* Add the constraint that $\partial\cdot\partial = 0$.
+* Add op-specific constraints.
+* Check for satisfiability.
+* Scatter the local matrices to global.
+
+----
+
+code samples
+
+----
+
+demonstration
+
+
+
+---
+
+# Closing thoughts
+
+----
+
+This representation of cell complexes:
+* Is easy to check for correctness
+* Is independent of the intrinsic dimension and coordination number
+* Allows a rich set of transformations to be implemented easily and declaratively
+* Is definitely sub-optimal for space and time
+
+----
+
+### Parallelism
+
+* All of this was very single-threaded.
+* For real PDE problems, we decompose the domain and go parallel.
+* We can treat the domains and the interfaces between them as a higher-level cell complex.
+
+----
+
+picture
+
+----
+
+### Further reading
+
+* Popular mesh generators: [Triangle](https://www.cs.cmu.edu/~quake/triangle.html), [aCute](https://www.cise.ufl.edu/~ungor/aCute/), [tetgen](https://tetgen.org), [TriWild](https://github.com/wildmeshing/TriWild), [TetWild](https://github.com/wildmeshing/fTetWild), [gmsh](https://gmsh.info)
+* [Leila De Floriani](http://users.umiacs.umd.edu/~deflo/) has written a lot about data structures for cell complexes [[1]](https://doi.org/10.1145/1057432.1057444)[[2]](https://doi.org/10.1007/978-3-642-15414-0_24)[[3]](https://dl.acm.org/doi/abs/10.5555/1281920.1281940)
+
+----
+
+help
+
+<img src="images/mayhem.jpg" width="30%">
+
+----
+
+### Help
+
+* I told James W about this and he used the words "program synthesis"?
+* I'm representing the variables as Ints and constraining to -1, 0, or +1.
+Is there a better way?
+* What can I do to make Z3 happy when we go to more unknowns? e.g. large multi-face ops
+* Please tell me if all this sounds insane and stupid
+
+
+
+---
+
+# Epilogue
+
+----
+
 ### Homology
 
-* If $\alpha$ is a boundary, it has no boundary.
-* Are there chains that have zero boundary, but that are not themselves boundaries?
+* If $\alpha = \partial\sigma$ for some $\sigma$, then $\partial\alpha = 0$.
+* Can we have $\partial\alpha = 0$ but $\forall\sigma, \alpha \neq \partial\sigma$?
 * These chains constitute the **homology groups**:
 $$H_k = \text{kernel }\partial_k / \text{image }\partial_{k + 1}$$
 
@@ -352,74 +473,9 @@ $$H_k = \text{kernel }\partial_k / \text{image }\partial_{k + 1}$$
 
 ----
 
-### Categories
+### Homology
 
-* To every (reasonable) *topological space* you can associate a *group*.
-* This is profoundly disturbing and gets us in Russell's paradox territory.
-* This is why people came up with category theory.
-* "I'd like to learn to ~~play~~ math like that, and then not do it." ~Frank Proffitt
-
-----
-
-### A data structure
-
-* We can represent cell complexes as a bunch of **sparse matrices** with **integer entries**.
-* How convenient that scipy, eigen or plenty of other packages give us this.
-
-----
-
-### Linear algebra
-
-* This interpretation opens up all sorts of linear algebraic reasoning to us.
-* For example, to merge two cells $t_0$ and $t_1$, we replace those columns in the boundary matrix with $\partial(t_0 + t_1)$.
-* Suppose that $P$, $Q$ are matrices such that $PQ = \rho I$ for some integer $\rho$.
-Then
-$$0 = \rho\cdot\partial_k\circ\partial_{k + 1} = (\partial_k \circ P)\circ(Q\circ\partial_{k + 1})$$
+* Morphisms of spaces imply morphisms of homology groups.
+* And this is why there's category theory.
 
 
-----
-
-![meme](linear-algebra.jpg)
-
----
-
-# Transforming topologies
-
-----
-
-### Joining cells
-
-* Using linear algebra makes implementing certain transformations really easy.
-* Ex: join two triangles into a quadrilateral = add their columns in the boundary matrix.
-
-----
-
-picture
-
----
-
-# Closing thoughts
-
-----
-
-This representation of cell complexes:
-* Is easy to check for correctness
-* Is independent of the intrinsic dimension
-* Is independent of the coordinatation number (simplex, cubical, polyhedral)
-* Allows a rich set of transformations to be implemented easily and declaratively
-* Is definitely sub-optimal for space and time
-
-----
-
-### Parallelism
-
-* All of this was very single-threaded.
-* For real PDE problems, we decompose the domain and go parallel.
-* We can treat the domains and the interfaces between them as a higher-level cell complex.
-
-----
-
-### Further reading
-
-* Popular mesh generators: [Triangle](https://www.cs.cmu.edu/~quake/triangle.html), [aCute](https://www.cise.ufl.edu/~ungor/aCute/), [tetgen](https://tetgen.org), [TriWild](https://github.com/wildmeshing/TriWild), [TetWild](https://github.com/wildmeshing/fTetWild), [gmsh](https://gmsh.info)
-* [Leila De Floriani](http://users.umiacs.umd.edu/~deflo/) has written a lot about data structures for cell complexes [[1]](https://doi.org/10.1145/1057432.1057444)[[2]](https://doi.org/10.1007/978-3-642-15414-0_24)[[3]](https://dl.acm.org/doi/abs/10.5555/1281920.1281940)
