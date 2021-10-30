@@ -17,13 +17,19 @@ Daniel Shapero
 
 ---
 
+# Why am I here
+
+----
+
 ### My day job
+
+![Larsen C rheology](images/larsen-rheology.png)
 
 ----
 
 ### Everyone's least favorite task
 
-![Larsen](larsen.png)
+![Larsen](images/larsen-mesh.png)
 
 ----
 
