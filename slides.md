@@ -450,10 +450,11 @@ help
 
 ### Help
 
-* I told James W about this and he used the words "program synthesis"?
+* I told James W about this and he said "program synthesis"?
 * I'm representing the variables as Ints and constraining to -1, 0, or +1.
 Is there a better way?
 * What can I do to make Z3 happy when we go to more unknowns? e.g. large multi-face ops
+* Z3 has arrays but I [shouldn't use them](https://stackoverflow.com/questions/11068561/create-an-array-with-fixed-size-and-initialize-it)?
 * Please tell me if all this sounds insane and stupid
 
 
