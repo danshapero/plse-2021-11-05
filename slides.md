@@ -425,7 +425,13 @@ This representation of cell complexes:
 
 ----
 
-picture
+### Parallelism
+
+<img src="images/decomposition.png" width="50%">
+
+An domain, decomposed into subdomains.
+Thick lines demarcate subdomain boundaries, thin lines the cell boundaries.
+Together they form a *nested* cell complex.
 
 ----
 
