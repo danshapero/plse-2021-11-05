@@ -81,7 +81,7 @@ Triangulation of two cells; left is not Delaunay, right is
 
 ### A key property
 
-Among all triangulations of a point set, Delaunay triangulations **maximize** the **minimum** angle.
+Among all triangulations of a 2D point set, Delaunay triangulations **maximize** the **minimum** angle.
 
 ----
 
@@ -171,7 +171,7 @@ Can we make them nicer to look at and write?
 I want cubical or polyhedral complexes!
 * Ordering only gives orientation for simplices.
 No more half-edge or winged edge data structures.
-* Less imperative, more declarative.
+* **Less imperative, more declarative.**
 
 
 
@@ -429,7 +429,7 @@ This representation of cell complexes:
 
 <img src="images/decomposition.png" width="50%">
 
-An domain, decomposed into subdomains.
+A domain, decomposed into subdomains.
 Thick lines demarcate subdomain boundaries, thin lines the cell boundaries.
 Together they form a *nested* cell complex.
 
