@@ -11,7 +11,7 @@ Daniel Shapero
 
 ----
 
-![meme](linear-algebra.jpg)
+![meme](images/linear-algebra.jpg)
 
 
 
@@ -73,7 +73,7 @@ Daniel Shapero
 
 ### Empty circumcircles
 
-![Full circumcircles](drawing1.svg) ![Empty circumcircles](drawing2.svg)
+![Full circumcircles](images/drawing1.svg) ![Empty circumcircles](images/drawing2.svg)
 
 Triangulation of two cells; left is not Delaunay, right is
 
@@ -107,7 +107,7 @@ We also need to:
 
 ----
 
-![sliver](sliver.svg)
+![sliver](images/sliver.svg)
 
 <small>From <a href="https://people.eecs.berkeley.edu/~jrs/papers/delref3d.pdf">Shewchuk (1998)</a>:
 "Tetrahedra with poor angles.
@@ -153,7 +153,7 @@ Flipping an edge is surprisingly hard.
 
 ...but those are far from the worst of it!
 
-![transformations](topological-transformations.svg)
+![transformations](images/topological-transformations.svg)
 
 <small>From <a href="https://doi.org/10.1007/978-3-540-75103-8_1">Klingner and Shewchuk (2008)</a></small>
 
@@ -343,7 +343,7 @@ $$\partial_0\circ\partial_1e = 2\bot \neq 0!$$
 
 ----
 
-![meme](linear-algebra.jpg)
+![meme](images/linear-algebra.jpg)
 
 
 
