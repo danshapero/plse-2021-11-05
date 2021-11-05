@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="409" height="409" viewBox="-204.5 -204.5 409 409">
+<defs>
+</defs>
+<path d="M-50.0,-50.0 L-75.0,75.0 L75.0,-75.0 Z" stroke-width="2" stroke="blue" fill-opacity="0" />
+<path d="M-75.0,75.0 L75.0,-75.0 L50.0,25.0 Z" stroke-width="2" stroke="blue" fill-opacity="0" />
+<circle cx="31.249999999999982" cy="31.249999999999982" r="114.90485194281395" stroke-width="2" stroke="green" fill-opacity="0" />
+<circle cx="-54.16666666666672" cy="-54.16666666666672" r="130.83598723422986" stroke-width="2" stroke="green" fill-opacity="0" />
+<circle cx="-50.0" cy="-50.0" r="4" fill="black" />
+<circle cx="-75.0" cy="75.0" r="4" fill="black" />
+<circle cx="75.0" cy="-75.0" r="4" fill="black" />
+<circle cx="50.0" cy="25.0" r="4" fill="black" />
+</svg>
