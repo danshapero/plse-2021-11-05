@@ -270,7 +270,9 @@ Or a 4D polytope got projected into 3D?
 
 * [**Cell complexes**](https://en.wikipedia.org/wiki/CW_complex) are a generalization of triangulations and polygonizations.
 * It's a bunch of shapes glued together*.
-* But they can have e.g. hanging edges.
+* **The gluing maps all have a *degree* in $\mathbb{Z}$.**
+* Adjacent cells should have opposite degree.
+* Cell complexes need not be manifolds!
 
 ${}$
 
@@ -360,6 +362,30 @@ $$\partial v_k = \bot$$
 * The vertex boundary matrix is a row of 1s!
 * If we did have $\partial e = v_1 + v_0$, then
 $$\partial_0\circ\partial_1e = 2\bot \neq 0!$$
+
+----
+
+### Even more annoying problems
+
+* What actually prevents two polygons from attaching the same way to an edge?
+* Turns out: nothing!
+
+----
+
+![Top cell](images/top-cell1.png)
+
+----
+
+### Even more convenient fictions
+
+* We'll play a similar game: add a top cell $\top$ of dimension $\infty$, *and* a phantom exterior $d$-cell!
+* Let $\{\sigma_k\}$ be the $d$-skeleton of the complex; then
+$$\partial\top = \sum_k \sigma_k,$$
+i.e. a column of all 1s.
+
+----
+
+![Top cell](images/top-cell2.png)
 
 ----
 
