@@ -510,6 +510,10 @@ $$H_k = \text{kernel }\partial_k / \text{image }\partial_{k + 1}$$
 
 ----
 
+![torus](images/torus-homology-b.png)
+
+----
+
 ### Homology
 
 * Morphisms of spaces imply morphisms of homology groups.
