@@ -73,7 +73,7 @@ Daniel Shapero
 
 ### Empty circumcircles
 
-![Full circumcircles](images/drawing1.svg) ![Empty circumcircles](images/drawing2.svg)
+<img src="images/drawing1.svg" alt="Full circumcircles"> <img src="images/drawing2.svg" alt="Empty circumcircles">
 
 Triangulation of two cells; left is not Delaunay, right is
 
