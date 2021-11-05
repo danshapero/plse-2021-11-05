@@ -449,11 +449,7 @@ Conveniently, ops are always local to a few cells.
 
 ----
 
-code samples
-
-----
-
-demonstration
+Let's look at [some code](https://github.com/danshapero/zmsh)
 
 
 
