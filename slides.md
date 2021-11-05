@@ -13,6 +13,14 @@ Daniel Shapero
 
 ![meme](images/linear-algebra.jpg)
 
+----
+
+This might be circle-squaring, angle-trisecting crankery
+
+![Pepe Silvia](https://pbs.twimg.com/profile_images/1264349037525942273/4jLH675U_400x400.jpg)
+
+I will not be offended if you call the authorities
+
 
 
 ---
