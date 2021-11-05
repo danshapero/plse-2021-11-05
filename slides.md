@@ -88,12 +88,32 @@ Among all triangulations of a 2D point set, Delaunay triangulations **maximize**
 ### Algorithms
 
 There are two basic types of algorithms in 2D:
-* edge flipping
-* polygon retriangulation
+* Lawson's algorithm: edge flipping
+* Bowyser-Watson algorithm: polygon retriangulation
 
 ----
 
-pictures
+### Bowyer-Watson algorithm
+
+![](images/bowyer-watson1.png)
+
+----
+
+### Bowyer-Watson algorithm
+
+![](images/bowyer-watson2.png)
+
+----
+
+### Bowyer-Watson algorithm
+
+![](images/bowyer-watson3.png)
+
+----
+
+### Bowyer-Watson algorithm
+
+![](images/bowyer-watson4.png)
 
 ----
 
